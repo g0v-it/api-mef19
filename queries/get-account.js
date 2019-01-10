@@ -5,6 +5,10 @@ module.exports = (id) => {
 	query : `
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX bgo: <http://linkeddata.center/lodmap-bgo/v1#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX resource: <http://mef.linkeddata.cloud/resource/>
+PREFIX fr: <http://linkeddata.center/botk-fr/v1#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 CONSTRUCT { 
    ?bubbleUri a bgo:Account ;
@@ -15,15 +19,15 @@ CONSTRUCT {
 		dct:subject ?subject ;
 		dct:source ?fact ;
 		bgo:amount ?amount ;
-		bgo:version ?year;
+		bgo:version "Parlamento";
 		bgo:previousValue ?previousValue ;
 		bgo:partitionLabel ?partitionLabel ;
   		bgo:isVersionOf ?historyRec ;
   		bgo:hasPart ?part .
      
     ?historyRec a bgo:VersionedAmount ;  
-    	bgo:version ?historyVersion ; 
-    	bgo:amount ?historyAmount .
+    	bgo:version "Governo" ; 
+    	bgo:amount ?previousValue .
     	
     ?part a bgo:PartialAmount ;
     	dct:title ?partTitle ; 
@@ -39,13 +43,15 @@ CONSTRUCT {
 		dct:subject ?subject ;
 		dct:source ?fact ;
 		bgo:amount ?amount ;	
-		bgo:version ?year;
 		bgo:partitionLabel ?partitionLabel.
   	
-  	OPTIONAL { ?bubbleUri bgo:previousValue ?previousValue }
   	OPTIONAL { 
-      ?bubbleUri bgo:isVersionOf ?historyRec .
-      ?historyRec bgo:version ?historyVersion; bgo:amount ?historyAmount
+        ?fact fr:concept ?concept.
+        ?h a fr:Component ; 
+          fr:concept/skos:closeMatch ?concept; 
+          qb:dataSet resource:spd_dlb_spe_elb_cap_01_2019; 
+          fr:amount ?previousValue.
+        BIND ( UUID() AS ?historyRec)
     }
   	OPTIONAL { 
       ?bubbleUri bgo:hasPart ?part .

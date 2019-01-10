@@ -1,5 +1,3 @@
-![copernicani](doc/copernicani-logo.png)
-
 # api-mef19
 API to compare the data related to the 2019 Italian goverment budget proposal with the approved one.
 
@@ -8,7 +6,7 @@ This repo contains a custom API that exposes the Italian 2019 approved budget an
 It connets to the knowledge base provided by https://data.budget.g0v.it/ and produce datamodel suitable to be visualized with the  
 https://budget.g0v.it/ application.
 
-The code is just a really small customization of the [example API provided by the data-budget project](https://github.com/g0v-it/data-budget/tree/master/apis)
+The code is just a patch to [example API provided by the data-budget project](https://github.com/g0v-it/data-budget/tree/master/apis)
 
 **Reference implementations:**
 

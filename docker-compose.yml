@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api:
+    build: ./apis
+    ports:
+      - "8080:80"
+  web:
+    image: copernicani/web-budget:2.0.1
+    ports:
+      - "80:8080"
+    environment:
+      - G0V_API_ENDPOINT=http://localhost:8080
+      - G0V_STRING_URL=https://raw.githubusercontent.com/g0v-it/api-mef19/master/strings.json
+      - G0V_SHOW_MEF_LOGO=1
+    depends_on:
+      - "api"

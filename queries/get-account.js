@@ -19,14 +19,14 @@ CONSTRUCT {
 		dct:subject ?subject ;
 		dct:source ?fact ;
 		bgo:amount ?amount ;
-		bgo:version "Parlamento";
+		bgo:version "v1-Definitiva";
 		bgo:previousValue ?previousValue ;
 		bgo:partitionLabel ?partitionLabel ;
   		bgo:isVersionOf ?historyRec ;
   		bgo:hasPart ?part .
      
     ?historyRec a bgo:VersionedAmount ;  
-    	bgo:version "Governo" ; 
+    	bgo:version "v0-Iniziale" ; 
     	bgo:amount ?previousValue .
     	
     ?part a bgo:PartialAmount ;

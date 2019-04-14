@@ -3,7 +3,7 @@ API to compare the data related to the 2019 Italian goverment budget proposal wi
 
 This repo contains a custom API that exposes the Italian 2019 approved budget and compare it with the original governmeny budget proposal.
 
-It connets to the knowledge base provided by https://data.budget.g0v.it/ and produce a data model compatible with the [BubbleGraph Ontology](http://linkeddata.center/lodmap-bgo/v1)
+It connets to the knowledge base provided by https://data.budget.g0v.it/ and produces a data model compatible with the [BubbleGraph Ontology](http://linkeddata.center/lodmap-bgo/v1)
 
 The code is just a patch to [example API provided by the data-budget project](https://github.com/g0v-it/data-budget/tree/master/apis)
 
